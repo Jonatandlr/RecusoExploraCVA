@@ -10,12 +10,18 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^3.3.0",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource/poppins": "^5.0.13",
     "@midudev/tailwind-animations": "^0.0.7",
+    "@splinetool/react-spline": "^2.2.6",
     "@splinetool/runtime": "^1.0.94",
+    "@types/react": "^18.2.78",
+    "@types/react-dom": "^18.2.25",
     "astro": "^4.6.1",
     "gsap": "^3.12.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "tailwindcss": "^3.4.3"
   }
 }
