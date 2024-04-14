@@ -30,7 +30,7 @@ const { canvaName } = Astro.props;
       const Plataform = spline.findObjectByName("Plataform");
       if (Plataform && escena) {
         // escena.visible= false;
-        gsap.set(escena.position, { y: -50 });
+        gsap.set(escena.position, {y:50 });
         gsap.set(escena.scale, {
           onComplete: () => {
             gsap.to(escena.scale, {
@@ -74,7 +74,7 @@ const { canvaName } = Astro.props;
 </div> -->
 <div
   id="Part1"
-  class="fixed z-10 top-0 left-0 w-screen h-screen animate-fade-in animate-delay-500 animate-duration-1000"
+  class="fixed w-screen h-screen animate-fade-in animate-delay-500 animate-duration-1000"
 >
   <canvas id="model1" class="w-full h-full"></canvas>
 </div>
