@@ -1,0 +1,70 @@
+---
+const { canvaName } = Astro.props;
+---
+
+<script>
+  import { Application } from "@splinetool/runtime";
+  import { gsap } from "gsap";
+
+  const canvas = document.getElementById("model1") as HTMLCanvasElement;
+  const spline = new Application(canvas);
+  let mouseX = 0;
+  let mouseXLimited = 0;
+
+  let mouseY = 0;
+  let mouseYLimited = 0;
+
+  function getMousePos(event: { clientX: number; clientY: number }) {
+    const rect = canvas.getBoundingClientRect();
+    mouseX = event.clientX - rect.left - rect.width / 2;
+    mouseY = event.clientY - rect.top - rect.height / 2;
+    // console.log(mouseX, mouseY);
+    
+  }
+  document.addEventListener("mousemove", getMousePos);
+
+  spline
+    .load("https://prod.spline.design/JjotcgUVwEmhu45n/scene.splinecode")
+    .then(() => {
+      const escena = spline.findObjectByName("scene");
+      const Plataform = spline.findObjectByName("Plataform");
+      console.log(Plataform);
+      if (Plataform && escena) {
+        gsap.set(escena.scale, { x: 0.7, y: 0.7, z: 0.7 });
+        // gsap.set(escena.position, { y: -5 });
+        // gsap.set(escena.rotation, { x: -Math.PI / 7 });
+        // gsap.to(Plataform.rotation, {
+        //   y: Math.PI * 2.15,
+        //   repeat: -1,
+        //   duration: 10,
+        //   ease: "none",
+        // });
+        // gsap.set()
+
+        // gsap.timeline({
+        //   scrollTrigger: {
+        //     trigger: "#Part1",
+        //     start: "top top",
+        //     end: "bottom top",
+        //     scrub: true,
+        //     onEnter: () => {
+
+        //       console.log('enter')
+        //     },
+        //   },
+        // })
+
+        // rotar la escena dependiendo de donde esta el mouse ejecutando un evento de spline
+      }
+    });
+</script>
+
+<!-- <div class="min-w-[350px] max-h-[500px]  ">
+  <canvas id="model1" width="242px" height="302"></canvas>
+</div> -->
+<div
+  id="Part1"
+  class="fixed z-10 top-0 left-0 w-screen h-screen animate-fade-in animate-delay-500 animate-duration-800"
+>
+  <canvas id="model1" class="w-full h-full"></canvas>
+</div>

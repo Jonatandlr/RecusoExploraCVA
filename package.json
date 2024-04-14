@@ -1,0 +1,21 @@
+{
+  "name": "recusoexploracva",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^5.1.0",
+    "@fontsource/poppins": "^5.0.13",
+    "@midudev/tailwind-animations": "^0.0.7",
+    "@splinetool/runtime": "^1.0.94",
+    "astro": "^4.6.1",
+    "gsap": "^3.12.5",
+    "tailwindcss": "^3.4.3"
+  }
+}

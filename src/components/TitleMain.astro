@@ -1,0 +1,33 @@
+---
+const { title } = Astro.props;
+---
+
+<section class="relative animate-fade-in animate-duration-900">
+  <h1
+    class="w-full text-[80px] font-bold absolute top-0 left-0 text-center"
+  >
+    {title}
+  </h1>
+  <h2
+    class="w-full text-[80px] tracking-[1px] font-semibold absolute top-0 left-0 text-center text-[#000000]"
+  >
+    {title}
+  </h2>
+</section>
+
+<style>
+  h1 {
+    color: transparent;
+    -webkit-text-stroke: 4px transparent;
+    background-image: linear-gradient(
+      to right,
+      #3495D0,
+      #5786A7,
+      #9BA7AF,
+      #9BA7AF,
+      #9BA7AF
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+</style>
