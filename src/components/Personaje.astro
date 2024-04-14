@@ -24,19 +24,19 @@ const { canvaName } = Astro.props;
   document.addEventListener("mousemove", getMousePos);
 
   spline
-    .load("https://prod.spline.design/JjotcgUVwEmhu45n/scene.splinecode")
+    .load("https://prod.spline.design/NyNEzWtLgTOl1HeU/scene.splinecode")
     .then(() => {
       const escena = spline.findObjectByName("scene");
       const Plataform = spline.findObjectByName("Plataform");
       if (Plataform && escena) {
         // escena.visible= false;
-        gsap.set(escena.position, { y: -8 });
+        gsap.set(escena.position, { y: -50 });
         gsap.set(escena.scale, {
           onComplete: () => {
             gsap.to(escena.scale, {
-              x: 0.5,
-              y: 0.5,
-              z: 0.5,
+              x: .95,
+              y: .95,
+              z: .95,
               duration: 1.5,
               ease: "none",
             });
@@ -44,9 +44,9 @@ const { canvaName } = Astro.props;
         });
 
         gsap.to(Plataform.rotation, {
-          y: Math.PI * 2.15,
+          y: Math.PI * 4,
           repeat: -1,
-          duration: 10,
+          duration: 8,
           ease: "none",
         });
         // gsap.set()
