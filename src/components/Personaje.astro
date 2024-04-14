@@ -4,10 +4,11 @@ const { canvaName } = Astro.props;
 
 <script>
   import { Application } from "@splinetool/runtime";
+  import type { Code } from "astro:components";
   import { gsap } from "gsap";
 
   const canvas = document.getElementById("model1") as HTMLCanvasElement;
-  const spline = new Application(canvas);
+  const spline = new Application(canvas, { renderMode: "continuous" });
   let mouseX = 0;
   let mouseXLimited = 0;
 
@@ -19,7 +20,6 @@ const { canvaName } = Astro.props;
     mouseX = event.clientX - rect.left - rect.width / 2;
     mouseY = event.clientY - rect.top - rect.height / 2;
     // console.log(mouseX, mouseY);
-    
   }
   document.addEventListener("mousemove", getMousePos);
 
@@ -28,17 +28,27 @@ const { canvaName } = Astro.props;
     .then(() => {
       const escena = spline.findObjectByName("scene");
       const Plataform = spline.findObjectByName("Plataform");
-      console.log(Plataform);
       if (Plataform && escena) {
-        gsap.set(escena.scale, { x: 0.7, y: 0.7, z: 0.7 });
-        // gsap.set(escena.position, { y: -5 });
-        // gsap.set(escena.rotation, { x: -Math.PI / 7 });
-        // gsap.to(Plataform.rotation, {
-        //   y: Math.PI * 2.15,
-        //   repeat: -1,
-        //   duration: 10,
-        //   ease: "none",
-        // });
+        // escena.visible= false;
+        gsap.set(escena.position, { y: -8 });
+        gsap.set(escena.scale, {
+          onComplete: () => {
+            gsap.to(escena.scale, {
+              x: 0.5,
+              y: 0.5,
+              z: 0.5,
+              duration: 1.5,
+              ease: "none",
+            });
+          },
+        });
+
+        gsap.to(Plataform.rotation, {
+          y: Math.PI * 2.15,
+          repeat: -1,
+          duration: 10,
+          ease: "none",
+        });
         // gsap.set()
 
         // gsap.timeline({
@@ -64,7 +74,7 @@ const { canvaName } = Astro.props;
 </div> -->
 <div
   id="Part1"
-  class="fixed z-10 top-0 left-0 w-screen h-screen animate-fade-in animate-delay-500 animate-duration-800"
+  class="fixed z-10 top-0 left-0 w-screen h-screen animate-fade-in animate-delay-500 animate-duration-1000"
 >
   <canvas id="model1" class="w-full h-full"></canvas>
 </div>
