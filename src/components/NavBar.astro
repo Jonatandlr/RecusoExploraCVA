@@ -1,17 +1,29 @@
+---
+import Botoncito from "./ReactComponents/Botoncito"
+// import { Image } from "astro:assets";
+// import LogoCVA from "../../public/LogoCVA.svg";
+// import LogoTec from "../../public/LogoTec.png";
+---
+
 <!-- NavBar -->
 <section
-  class=" w-full flex justify-between animate-fade-in animate-duration-900"
+  class="w-full flex justify-between animate-fade-in animate-duration-900"
 >
   <a
     href="https://www.centroscomunitariosdeaprendizaje.org.mx/"
     target="_blank"
-    class="hover:scale-105 hover:opacity-90"
+    class="hover:scale-105 hover:opacity-90 transition inline-block"
   >
     <img src="/LogoCVA.svg" alt="LogoCVA" />
   </a>
-  <a href="https://www.tec-monterrey.mx/" 
-    class="w-[222px] h-[43px] hover:scale-105 hover:opacity-90" 
-    target="_blank">
+  
+  <Botoncito client:load/>
+
+  <a
+    href="https://www.tec-monterrey.mx/"
+    class="w-[222px] h-[43px] hover:scale-105 hover:opacity-90 transition inline-block"
+    target="_blank"
+  >
     <img src="/LogoTec.png" alt="LogoTec" />
   </a>
 </section>

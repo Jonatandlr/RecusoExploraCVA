@@ -24,7 +24,8 @@ const { canvaName } = Astro.props;
   document.addEventListener("mousemove", getMousePos);
 
   spline
-    .load("https://prod.spline.design/NyNEzWtLgTOl1HeU/scene.splinecode")
+    .load("https://prod.spline.design/NyNEzWtLgTOl1HeU/scene.splinecode") //Link de Produccion
+    // .load("https://dev.spline.design/NyNEzWtLgTOl1HeU/scene.splinecode") //Link de Desarrollo
     .then(() => {
       const escena = spline.findObjectByName("scene");
       const Plataform = spline.findObjectByName("Plataform");
@@ -74,7 +75,7 @@ const { canvaName } = Astro.props;
 </div> -->
 <div
   id="Part1"
-  class="fixed w-screen h-screen animate-fade-in animate-delay-500 animate-duration-1000"
+  class="fixed  w-screen h-screen animate-fade-in animate-delay-500 animate-duration-1000"
 >
   <canvas id="model1" class="w-full h-full"></canvas>
 </div>
