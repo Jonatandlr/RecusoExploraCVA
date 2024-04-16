@@ -4,40 +4,36 @@ const { canvaName } = Astro.props;
 
 <script>
   import { Application } from "@splinetool/runtime";
-  import type { Code } from "astro:components";
+
   import { gsap } from "gsap";
 
   const canvas = document.getElementById("model1") as HTMLCanvasElement;
   const spline = new Application(canvas, { renderMode: "continuous" });
   let mouseX = 0;
-  let mouseXLimited = 0;
+  // let mouseXLimited = 0;
 
   let mouseY = 0;
-  let mouseYLimited = 0;
-
-  function getMousePos(event: { clientX: number; clientY: number }) {
-    const rect = canvas.getBoundingClientRect();
-    mouseX = event.clientX - rect.left - rect.width / 2;
-    mouseY = event.clientY - rect.top - rect.height / 2;
-    // console.log(mouseX, mouseY);
-  }
-  document.addEventListener("mousemove", getMousePos);
+  // let mouseYLimited = 0;
 
   spline
-    .load("https://prod.spline.design/NyNEzWtLgTOl1HeU/scene.splinecode") //Link de Produccion
-    // .load("https://dev.spline.design/NyNEzWtLgTOl1HeU/scene.splinecode") //Link de Desarrollo
+    // .load("https://prod.spline.design/NyNEzWtLgTOl1HeU/scene.splinecode") //Link de Produccion
+    .load("https://draft.spline.design/GggMtDCJzCSaWExL/scene.splinecode") //Link de Desarrollo
     .then(() => {
       const escena = spline.findObjectByName("scene");
       const Plataform = spline.findObjectByName("Plataform");
       if (Plataform && escena) {
         // escena.visible= false;
-        gsap.set(escena.position, {y:50 });
+        gsap.set(escena.position, {
+          x: 50,
+          y: 0,
+          z: 0,
+        });
         gsap.set(escena.scale, {
           onComplete: () => {
             gsap.to(escena.scale, {
-              x: .95,
-              y: .95,
-              z: .95,
+              x: 0.85,
+              y: 0.85,
+              z: 0.85,
               duration: 1.5,
               ease: "none",
             });
@@ -50,32 +46,43 @@ const { canvaName } = Astro.props;
           duration: 8,
           ease: "none",
         });
-        // gsap.set()
-
-        // gsap.timeline({
-        //   scrollTrigger: {
-        //     trigger: "#Part1",
-        //     start: "top top",
-        //     end: "bottom top",
-        //     scrub: true,
-        //     onEnter: () => {
-
-        //       console.log('enter')
-        //     },
-        //   },
-        // })
-
-        // rotar la escena dependiendo de donde esta el mouse ejecutando un evento de spline
+        canvas.addEventListener("mousemove", getMousePos);
+        function getMousePos(event: { clientX: number; clientY: number }) {
+          const rect = canvas.getBoundingClientRect();
+          mouseX = event.clientX - rect.left - rect.width / 2;
+          mouseY = event.clientY - rect.top - rect.height / 2;
+          if (-125 < mouseX && mouseX < 125 && -165 < mouseY && mouseY < 165) {
+            gsap.set(escena.scale, {
+              onComplete: () => {
+                gsap.to(escena.scale, {
+                  x: 1,
+                  y: 1,
+                  z: 1,
+                  duration: .2,
+                  ease: "none",
+                });
+              },
+            });
+          }else{
+            gsap.set(escena.scale, {
+              onComplete: () => {
+                gsap.to(escena.scale, {
+                  x: 0.85,
+                  y: 0.85,
+                  z: 0.85,
+                  duration: .2,
+                  ease: "none",
+                });
+              },
+            });
+          
+          }
+        }
       }
     });
 </script>
 
-<!-- <div class="min-w-[350px] max-h-[500px]  ">
-  <canvas id="model1" width="242px" height="302"></canvas>
-</div> -->
-<div
-  id="Part1"
-  class="fixed  w-screen h-screen animate-fade-in animate-delay-500 animate-duration-1000"
->
-  <canvas id="model1" class="w-full h-full"></canvas>
-</div>
+<canvas id="model1" class="max-w-full max-h-full pointer-events-auto"></canvas>
+<!-- <canvas id="model1" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; touch-action: none; cursor: default;"></canvas> -->
+
+<!-- bg-[#0f0f0f] -->

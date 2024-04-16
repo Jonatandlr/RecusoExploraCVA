@@ -9,13 +9,13 @@ export default function Botoncito() {
   return (
     <>
       <button
-        className="border border-white rounded-md px-2 py-1 mt-2 text-xs font-bold text-white"
+        className="absolute  w-60 aspect-2/3 inline-block select-none border-2 border-red-500 pointer-events-auto"
         onClick={() => {
           setIsOpen(!isOpen);
           console.log("isOpen", isOpen);
         }}
       >
-        {isOpen ? "Guardar" : "Abrir Modal de ejemplo"}
+       
       </button>
       {isOpen && (
         <div className="fixed inset-0  text-white bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-30 py-10">
