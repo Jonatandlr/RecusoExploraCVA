@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import CardCursos from "./CardCursos";
 import useJovenes from "../../hooks/useJovenes";
 
-export default function Botoncito() {
+export default function Botoncito({idName}: {idName: string}) {
   const [isOpen, setIsOpen] = useState(false);
   const data = useJovenes();
 
   return (
     <>
       <button
-        className="absolute  w-60 aspect-2/3 inline-block select-none border-2 border-red-500 pointer-events-auto"
+        id={idName}
+        className="absolute  w-60 aspect-2/3 inline-block select-none  pointer-events-auto"
         onClick={() => {
           setIsOpen(!isOpen);
           console.log("isOpen", isOpen);
@@ -18,9 +19,8 @@ export default function Botoncito() {
        
       </button>
       {isOpen && (
-        <div className="fixed inset-0  text-white bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-30 py-10">
+        <div className="fixed inset-0  text-white bg-black bg-opacity-10 backdrop-blur-md flex items-center justify-center scro">
           <div className="bg-gradient-to-tl from-[#438EBE] via-[#85BADC] to-[#E8EEF2] p-1 rounded-2xl max-h-screen animate-fade-in-down animate-duration-300">
-
             <div className="bg-black rounded-2xl py-6 px-8 min-w-[760px] min-h-[372px] max-h-[600px] ">
               {/* #464646 fondo opcion */}
               <div className="flex justify-between items-center">
