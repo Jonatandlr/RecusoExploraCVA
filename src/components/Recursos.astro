@@ -1,8 +1,12 @@
 ---
 import Personaje from "./Personaje.astro";
+import Botoncito from "./ReactComponents/Botoncito";
 ---
 
-<section class="w-full h-full top-32 flex justify-center">
-  <Personaje canvaName="model1"/>
 
+<section id="Recursos" class="w-full max-h-[550px] absolute top-0 flex justify-center items-center gap-3  animate-fade-in animate-delay-500 animate-duration-1000 text-white ">
+  <Personaje canvaName="model1"/>
+  <!-- <a href="www.google.com" target="_blank" class="absolute  w-60 aspect-2/3 inline-block select-none bg-red-400  border-2 border-red-400">this is a link</a> -->
+  <Botoncito client:load idName="Boton1"/>
+  
 </section>
