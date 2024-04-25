@@ -9,17 +9,16 @@ const { canvaName } = Astro.props;
 
   const canvas = document.getElementById("model1") as HTMLCanvasElement;
   const spline = new Application(canvas, { renderMode: "continuous" });
-  const botonModal1 = document.getElementById(
+  const botonJovenes = document.getElementById(
     "JovenesBoton"
   ) as HTMLButtonElement;
-  let mouseX = 0;
-  // let mouseXLimited = 0;
 
-  let mouseY = 0;
-  // let mouseYLimited = 0;
+  const botonAdultos = document.getElementById(
+    "AdultoBoton"
+  ) as HTMLButtonElement;
 
   spline
-    .load("https://draft.spline.design/E4Zbxa0S8A4wdUx9/scene.splinecode")
+    .load("https://draft.spline.design/mOrteyUtksaAO4ZH/scene.splinecode")
     .then(() => {
       const escenaJovenes = spline.findObjectByName("Jovenes");
 
@@ -36,8 +35,6 @@ const { canvaName } = Astro.props;
         escenaAdultos &&
         PlataformAdultos
       ) {
-        // console.log(escenaAdultos)
-        // escena.visible= false;
         gsap.set(escenaJovenes.position, {
           x: 0,
           y: 0,
@@ -64,7 +61,7 @@ const { canvaName } = Astro.props;
 
         // Hover of scene Jovenes
 
-        botonModal1.addEventListener("mouseover", () => {
+        botonJovenes.addEventListener("mouseover", () => {
           gsap.set(escenaJovenes.scale, {
             onComplete: () => {
               gsap.to(escenaJovenes.scale, {
@@ -77,7 +74,7 @@ const { canvaName } = Astro.props;
             },
           });
         });
-        botonModal1.addEventListener("mouseout", () => {
+        botonJovenes.addEventListener("mouseout", () => {
           gsap.set(escenaJovenes.scale, {
             onComplete: () => {
               gsap.to(escenaJovenes.scale, {
@@ -91,6 +88,7 @@ const { canvaName } = Astro.props;
           });
         });
 
+        // Manejo de modelo de Adultos
         gsap.set(escenaAdultos.position, {
           x: -1130,
           y: 50,
@@ -113,11 +111,34 @@ const { canvaName } = Astro.props;
           duration: 8,
           ease: "none",
         });
-      }
+        // Hover of scene Jovenes
 
-      // Manejo de modelo de Adultos
-
-      if (PlataformAdultos && escenaAdultos) {
+        botonAdultos.addEventListener("mouseover", () => {
+          gsap.set(escenaAdultos.scale, {
+            onComplete: () => {
+              gsap.to(escenaAdultos.scale, {
+                x: 0.95,
+                y: 0.95,
+                z: 0.95,
+                duration: 0.2,
+                ease: "none",
+              });
+            },
+          });
+        });
+        botonAdultos.addEventListener("mouseout", () => {
+          gsap.set(escenaAdultos.scale, {
+            onComplete: () => {
+              gsap.to(escenaAdultos.scale, {
+                x: 0.85,
+                y: 0.85,
+                z: 0.85,
+                duration: 0.2,
+                ease: "none",
+              });
+            },
+          });
+        });
       }
     });
 </script>

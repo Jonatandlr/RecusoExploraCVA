@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CardCursos from "./CardCursos";
 import useJovenes from "../../hooks/useJovenes";
+import useAdultos from "../../hooks/useAdultos";
 
 export default function Botoncito({
   idName,
@@ -10,14 +11,26 @@ export default function Botoncito({
   estilo: string;
 }) {
   const [isOpen, setIsOpen] = useState(false);
-  const data = useJovenes();
+  const [data, setData] = useState([]);
+  const [Title, setTitle] = useState("");
+
+  useEffect(() => {
+    if (idName === "JovenesBoton") {
+      setData(useJovenes());
+      setTitle("Jovenes");
+    }
+    if (idName === "AdultoBoton") {
+      setData(useAdultos());
+      setTitle("Adultos");
+    }
+  }, []);
 
   return (
     <>
       <div className={`${estilo}`}>
         <button
           id={idName}
-          className={` w-60 aspect-2/3 block select-none  pointer-events-auto border-2 border-red-500 relative`}
+          className={` w-60 aspect-2/3 inline-block select-none  pointer-events-auto border-2 border-red-500 relative`}
           onClick={() => {
             setIsOpen(!isOpen);
             console.log("isOpen", isOpen);
@@ -25,14 +38,14 @@ export default function Botoncito({
         ></button>
       </div>
       {isOpen && (
-        <div className="fixed inset-0  text-white bg-black bg-opacity-10 backdrop-blur-md flex items-center justify-center overflow-y-hidden">
+        <div className="fixed inset-0  text-white bg-white bg-opacity-10 backdrop-blur-md flex items-center justify-center overflow-y-hidden z-30">
           <div className="bg-gradient-to-tl from-[#438EBE] via-[#85BADC] to-[#E8EEF2] p-1 rounded-2xl  animate-fade-in-down animate-duration-300">
             <div className="bg-black rounded-2xl py-6 px-8 min-w-[760px] min-h-[372px] max-h-[600px] ">
               {/* #464646 fondo opcion */}
 
               <div className="flex justify-between items-center">
                 <h2 className="text-transparent text-3xl font-bold bg-gradient-to-br from-[#438EBE] via-[#85BADC] to-[#E8EEF2] bg-clip-text mb-5">
-                  Jovenes
+                  {Title}
                 </h2>
 
                 <button
