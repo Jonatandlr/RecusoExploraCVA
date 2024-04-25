@@ -6,9 +6,10 @@ const { canvaName } = Astro.props;
   import { Application } from "@splinetool/runtime";
 
   import { gsap } from "gsap";
-
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
   const canvas = document.getElementById("model1") as HTMLCanvasElement;
-  const spline = new Application(canvas, { renderMode: "continuous" });
+  const spline = new Application(canvas, { renderMode: "auto" });
   const botonJovenes = document.getElementById(
     "JovenesBoton"
   ) as HTMLButtonElement;
@@ -35,11 +36,48 @@ const { canvaName } = Astro.props;
         escenaAdultos &&
         PlataformAdultos
       ) {
-        gsap.set(escenaJovenes.position, {
-          x: 0,
-          y: 0,
-          z: 0,
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 768) {
+            gsap.set(escenaJovenes.position, {
+              x: 0,
+              y: 0,
+              z: 0,
+            });
+          } else {
+            gsap.set(escenaJovenes.position, {
+              x: -1130,
+              y: 0,
+              z: 0,
+            });
+          }
+
+          if (window.innerWidth > 768) {
+            gsap.set(escenaAdultos.position, {
+              x: -1130,
+              y: 50,
+            });
+          } else {
+            gsap.set(escenaAdultos.position, {
+              x: -70,
+              y: 1200,
+            });
+          }
         });
+
+        if (window.innerWidth > 768) {
+          gsap.set(escenaJovenes.position, {
+            x: 0,
+            y: 0,
+            z: 0,
+          });
+        } else {
+          gsap.set(escenaJovenes.position, {
+            x: -1400,
+            y: 0,
+            z: 0,
+          });
+        }
+
         gsap.set(escenaJovenes.scale, {
           onComplete: () => {
             gsap.to(escenaJovenes.scale, {
@@ -89,10 +127,18 @@ const { canvaName } = Astro.props;
         });
 
         // Manejo de modelo de Adultos
-        gsap.set(escenaAdultos.position, {
-          x: -1130,
-          y: 50,
-        });
+        if (window.innerWidth > 768) {
+          gsap.set(escenaAdultos.position, {
+            x: -1130,
+            y: 50,
+          });
+        } else {
+          gsap.set(escenaAdultos.position, {
+            x: -70,
+            y: 1200,
+          });
+        }
+
         gsap.set(escenaAdultos.scale, {
           onComplete: () => {
             gsap.to(escenaAdultos.scale, {
@@ -111,7 +157,7 @@ const { canvaName } = Astro.props;
           duration: 8,
           ease: "none",
         });
-        // Hover of scene Jovenes
+        // Hover of scene Adultos
 
         botonAdultos.addEventListener("mouseover", () => {
           gsap.set(escenaAdultos.scale, {
@@ -138,6 +184,37 @@ const { canvaName } = Astro.props;
               });
             },
           });
+        });
+
+        // ScrollTrigger of scenes
+
+        gsap.to(escenaJovenes.position, {
+            scrollTrigger: {
+            trigger: "#JovenesBoton",
+            start: "top 60%",
+            end: "bottom 70%",
+            //markers: true,
+            scrub: true,
+            toggleActions: "restart none reverse none",
+          },
+          x: 0,
+          y: 0,
+          z: 0,
+            
+          
+          
+        });
+
+        gsap.to(escenaAdultos.position, {
+          scrollTrigger: {
+            trigger: "#JovenesBoton",
+            start: "top 60%",
+            end: "bottom 70%",
+            // markers: true,
+            scrub: true,
+            toggleActions: "restart none reverse none",
+          },
+          x: 1500,
         });
       }
     });

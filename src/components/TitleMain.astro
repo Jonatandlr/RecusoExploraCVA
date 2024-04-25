@@ -2,12 +2,12 @@
 const { title } = Astro.props;
 ---
 
-<section id="titulo" class="animate-fade-in animate-duration-900 relative">
-  <h1 class="w-full text-[80px] font-bold text-center">
+<section id="titulo" class="animate-fade-in animate-duration-900 relative mt-10 md:mt-0">
+  <h1 class="w-full text-[8vw] md:text-[64px] lg:text-[80px] font-bold text-center">
     {title}
   </h1>
   <h2
-    class="w-full text-[80px] tracking-[1px] font-semibold absolute top-0 text-center text-black"
+    class="w-full text-[8vw]  md:text-[64px] lg:text-[80px]  tracking-[0.5px] lg:tracking-[1px] font-semibold absolute top-0 text-center text-black"
   >
     {title}
   </h2>

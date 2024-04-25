@@ -9,6 +9,7 @@ export default {
 			},
 			aspectRatio: {
 				'2/3': "0.8/1",
+				'full': "1/1.5",
 				
 			},
 			

@@ -27,10 +27,10 @@ export default function Botoncito({
 
   return (
     <>
-      <div className={`${estilo}`}>
+      <div className={`${estilo}`} >
         <button
           id={idName}
-          className={` w-60 aspect-2/3 inline-block select-none  pointer-events-auto border-2 border-red-500 relative`}
+          className={` w-60 aspect-full md:aspect-2/3 inline-block select-none  pointer-events-auto border-2 border-red-500 relative`}
           onClick={() => {
             setIsOpen(!isOpen);
             console.log("isOpen", isOpen);
