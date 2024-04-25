@@ -9,7 +9,9 @@ const { canvaName } = Astro.props;
 
   const canvas = document.getElementById("model1") as HTMLCanvasElement;
   const spline = new Application(canvas, { renderMode: "continuous" });
-  const botonModal1 = document.getElementById("Boton1") as HTMLButtonElement;
+  const botonModal1 = document.getElementById(
+    "JovenesBoton"
+  ) as HTMLButtonElement;
   let mouseX = 0;
   // let mouseXLimited = 0;
 
@@ -17,54 +19,55 @@ const { canvaName } = Astro.props;
   // let mouseYLimited = 0;
 
   spline
-    .load("https://draft.spline.design/iyypGw4xR5-3PnXh/scene.splinecode") //Link de Desarrollo
+    .load("https://draft.spline.design/E4Zbxa0S8A4wdUx9/scene.splinecode")
     .then(() => {
-      const escena = spline.findObjectByName("scene");
-      const Plataform = spline.findObjectByName("Plataform");
-      if (Plataform && escena) {
+      const escenaJovenes = spline.findObjectByName("Jovenes");
+
+      const PlataformJovenes = spline.findObjectByName("PlataformJovenes");
+
+      const escenaAdultos = spline.findObjectByName("Adultos");
+
+      const PlataformAdultos = spline.findObjectByName("PlataformAdultos");
+
+      // Manejo de modelo de Jovenes
+      if (
+        PlataformJovenes &&
+        escenaJovenes &&
+        escenaAdultos &&
+        PlataformAdultos
+      ) {
+        // console.log(escenaAdultos)
         // escena.visible= false;
-        gsap.set(escena.position, {
-          x: 50,
+        gsap.set(escenaJovenes.position, {
+          x: 0,
           y: 0,
           z: 0,
         });
-        gsap.set(escena.scale, {
+        gsap.set(escenaJovenes.scale, {
           onComplete: () => {
-            gsap.to(escena.scale, {
-              x: 0.85,
-              y: 0.85,
-              z: 0.85,
+            gsap.to(escenaJovenes.scale, {
+              x: 0.75,
+              y: 0.75,
+              z: 0.75,
               duration: 1.5,
               ease: "none",
             });
           },
         });
 
-        gsap.to(Plataform.rotation, {
+        gsap.to(PlataformJovenes.rotation, {
           y: Math.PI * 4,
           repeat: -1,
           duration: 8,
           ease: "none",
         });
 
-        // Hover of scene 
+        // Hover of scene Jovenes
+
         botonModal1.addEventListener("mouseover", () => {
-          gsap.set(escena.scale, {
+          gsap.set(escenaJovenes.scale, {
             onComplete: () => {
-              gsap.to(escena.scale, {
-                x: 1,
-                y: 1,
-                z: 1,
-                duration: 0.2,
-                ease: "none",
-              });
-            },
-          });
-        });
-        botonModal1.addEventListener("mouseout", () => {
-          gsap.set(escena.scale, {
-            onComplete: () => {
-              gsap.to(escena.scale, {
+              gsap.to(escenaJovenes.scale, {
                 x: 0.85,
                 y: 0.85,
                 z: 0.85,
@@ -74,10 +77,52 @@ const { canvaName } = Astro.props;
             },
           });
         });
+        botonModal1.addEventListener("mouseout", () => {
+          gsap.set(escenaJovenes.scale, {
+            onComplete: () => {
+              gsap.to(escenaJovenes.scale, {
+                x: 0.75,
+                y: 0.75,
+                z: 0.75,
+                duration: 0.2,
+                ease: "none",
+              });
+            },
+          });
+        });
 
-        
+        gsap.set(escenaAdultos.position, {
+          x: -1130,
+          y: 50,
+        });
+        gsap.set(escenaAdultos.scale, {
+          onComplete: () => {
+            gsap.to(escenaAdultos.scale, {
+              x: 0.85,
+              y: 0.85,
+              z: 0.85,
+              duration: 1.5,
+              ease: "none",
+            });
+          },
+        });
+
+        gsap.to(PlataformAdultos.rotation, {
+          y: Math.PI * 4,
+          repeat: -1,
+          duration: 8,
+          ease: "none",
+        });
+      }
+
+      // Manejo de modelo de Adultos
+
+      if (PlataformAdultos && escenaAdultos) {
       }
     });
 </script>
 
-<canvas id="model1" class="max-w-full max-h-full pointer-events-auto"></canvas>
+<canvas
+  id="model1"
+  class="max-w-full max-h-full pointer-events-auto border-2 border-red-950 absolute top-0 left-0"
+></canvas>

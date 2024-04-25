@@ -2,22 +2,28 @@ import React, { useState } from "react";
 import CardCursos from "./CardCursos";
 import useJovenes from "../../hooks/useJovenes";
 
-export default function Botoncito({idName}: {idName: string}) {
+export default function Botoncito({
+  idName,
+  estilo,
+}: {
+  idName: string;
+  estilo: string;
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const data = useJovenes();
 
   return (
     <>
-      <button
-        id={idName}
-        className="absolute  w-60 aspect-2/3 inline-block select-none  pointer-events-auto"
-        onClick={() => {
-          setIsOpen(!isOpen);
-          console.log("isOpen", isOpen);
-        }}
-      >
-       
-      </button>
+      <div className={`${estilo}`}>
+        <button
+          id={idName}
+          className={` w-60 aspect-2/3 block select-none  pointer-events-auto border-2 border-red-500 relative`}
+          onClick={() => {
+            setIsOpen(!isOpen);
+            console.log("isOpen", isOpen);
+          }}
+        ></button>
+      </div>
       {isOpen && (
         <div className="fixed inset-0  text-white bg-black bg-opacity-10 backdrop-blur-md flex items-center justify-center overflow-y-hidden">
           <div className="bg-gradient-to-tl from-[#438EBE] via-[#85BADC] to-[#E8EEF2] p-1 rounded-2xl  animate-fade-in-down animate-duration-300">
@@ -51,7 +57,10 @@ export default function Botoncito({idName}: {idName: string}) {
                 </button>
               </div>
 
-              <div className="p-5 grid grid-cols-2 gap-4 max-h-[500px] overflow-y-auto " style={{ scrollBehavior: 'smooth' }}>
+              <div
+                className="p-5 grid grid-cols-2 gap-4 max-h-[500px] overflow-y-auto "
+                style={{ scrollBehavior: "smooth" }}
+              >
                 {data.map((item, index) => (
                   <CardCursos
                     key={index}
@@ -61,7 +70,6 @@ export default function Botoncito({idName}: {idName: string}) {
                     imagen={item.imagen}
                   />
                 ))}
-                
               </div>
             </div>
           </div>
