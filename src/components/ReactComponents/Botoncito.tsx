@@ -30,7 +30,7 @@ export default function Botoncito({
       <div className={`${estilo}`} >
         <button
           id={idName}
-          className={` w-60 aspect-full md:aspect-2/3 inline-block select-none  pointer-events-auto border-2 border-red-500 relative`}
+          className={` w-60 aspect-full md:aspect-2/3 inline-block select-none  pointer-events-auto  relative`}
           onClick={() => {
             setIsOpen(!isOpen);
             console.log("isOpen", isOpen);
@@ -40,7 +40,7 @@ export default function Botoncito({
       {isOpen && (
         <div className="fixed inset-0  text-white bg-white bg-opacity-10 backdrop-blur-md flex items-center justify-center overflow-y-hidden z-30">
           <div className="bg-gradient-to-tl from-[#438EBE] via-[#85BADC] to-[#E8EEF2] p-1 rounded-2xl  animate-fade-in-down animate-duration-300">
-            <div className="bg-black rounded-2xl py-6 px-8 min-w-[760px] min-h-[372px] max-h-[600px] ">
+            <div className="bg-black rounded-2xl py-6 px-8 min-w-[760px] min-h-[372px] max-h-screen">
               {/* #464646 fondo opcion */}
 
               <div className="flex justify-between items-center">
@@ -71,7 +71,7 @@ export default function Botoncito({
               </div>
 
               <div
-                className="p-5 grid grid-cols-2 gap-4 max-h-[500px] overflow-y-auto "
+                className="p-5 grid grid-cols-1 md:grid-cols-4 gap-4  overflow-y-auto "
                 style={{ scrollBehavior: "smooth" }}
               >
                 {data.map((item, index) => (

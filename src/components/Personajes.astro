@@ -36,33 +36,33 @@ const { canvaName } = Astro.props;
         escenaAdultos &&
         PlataformAdultos
       ) {
-        window.addEventListener("resize", () => {
-          if (window.innerWidth > 768) {
-            gsap.set(escenaJovenes.position, {
-              x: 0,
-              y: 0,
-              z: 0,
-            });
-          } else {
-            gsap.set(escenaJovenes.position, {
-              x: -1130,
-              y: 0,
-              z: 0,
-            });
-          }
+        // window.addEventListener("resize", () => {
+        //   if (window.innerWidth > 768) {
+        //     gsap.set(escenaJovenes.position, {
+        //       x: 0,
+        //       y: 0,
+        //       z: 0,
+        //     });
+        //   } else {
+        //     gsap.set(escenaJovenes.position, {
+        //       x: -1130,
+        //       y: 0,
+        //       z: 0,
+        //     });
+        //   }
 
-          if (window.innerWidth > 768) {
-            gsap.set(escenaAdultos.position, {
-              x: -1130,
-              y: 50,
-            });
-          } else {
-            gsap.set(escenaAdultos.position, {
-              x: -70,
-              y: 1200,
-            });
-          }
-        });
+        //   if (window.innerWidth > 768) {
+        //     gsap.set(escenaAdultos.position, {
+        //       x: -1130,
+        //       y: 50,
+        //     });
+        //   } else {
+        //     gsap.set(escenaAdultos.position, {
+        //       x: -70,
+        //       y: 1200,
+        //     });
+        //   }
+        // });
 
         if (window.innerWidth > 768) {
           gsap.set(escenaJovenes.position, {
@@ -137,6 +137,38 @@ const { canvaName } = Astro.props;
             x: -70,
             y: 1200,
           });
+
+          gsap.to(escenaJovenes.position, {
+            scrollTrigger: {
+            trigger: "#JovenesBoton",
+            start: "top 60%",
+            end: "bottom 70%",
+            //markers: true,
+            scrub: true,
+            toggleActions: "restart none reverse none",
+          },
+          x: 0,
+          y: 0,
+          z: 0,
+            
+          
+          
+        });
+
+        gsap.to(escenaAdultos.position, {
+          scrollTrigger: {
+            trigger: "#JovenesBoton",
+            start: "top 60%",
+            end: "bottom 70%",
+            // markers: true,
+            scrub: true,
+            toggleActions: "restart none reverse none",
+          },
+          x: 1500,
+        });
+
+
+
         }
 
         gsap.set(escenaAdultos.scale, {
@@ -188,39 +220,12 @@ const { canvaName } = Astro.props;
 
         // ScrollTrigger of scenes
 
-        gsap.to(escenaJovenes.position, {
-            scrollTrigger: {
-            trigger: "#JovenesBoton",
-            start: "top 60%",
-            end: "bottom 70%",
-            //markers: true,
-            scrub: true,
-            toggleActions: "restart none reverse none",
-          },
-          x: 0,
-          y: 0,
-          z: 0,
-            
-          
-          
-        });
-
-        gsap.to(escenaAdultos.position, {
-          scrollTrigger: {
-            trigger: "#JovenesBoton",
-            start: "top 60%",
-            end: "bottom 70%",
-            // markers: true,
-            scrub: true,
-            toggleActions: "restart none reverse none",
-          },
-          x: 1500,
-        });
+        
       }
     });
 </script>
 
 <canvas
   id="model1"
-  class="max-w-full max-h-full pointer-events-auto border-2 border-red-950 absolute top-0 left-0"
+  class="max-w-full max-h-full pointer-events-auto   absolute top-0 left-0"
 ></canvas>

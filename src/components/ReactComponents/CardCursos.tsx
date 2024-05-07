@@ -12,21 +12,20 @@ export default function CardCursos({
   imagen,
 }: CardCursosProps) {
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md max-w-lg ">
+    <div className=" h-[250px] aspect-square flex text-center border-2 rounded-[20px] overflow-hidden relative group">
       <img
         src={imagen}
         alt="Primeros Auxilios"
-        className="h-32 w-full object-cover rounded-lg"
+        className="object-cover group-hover:scale-105 transform transition-all duration-300 ease-in-out"
       />
-      <h2 className="text-lg font-bold text-gray-800">{recurso}</h2>
-      <p className="text-gray-600">
-       {descripcion}
-      </p>
+      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-60 group-hover:bg-opacity-20 transition duration-500 " />
       <a
         href={link}
-        className="text-blue-700 font-bold"
+        target="_blank"
+        className="absolute top-0 left-0 px-2 w-full h-full flex flex-col items-center justify-center text-white opacity-100 transition-opacity duration-500 ease-in-out group-hover:opacity-0"
       >
-        Ver más
+        <h3 className="lg:text-xl text-2xl font-bold">{recurso}</h3>
+        {/* <p className="lg:text-xl text-lg lg:max-w-lg max-w-52">{descripcion}</p> */}
       </a>
     </div>
   );
