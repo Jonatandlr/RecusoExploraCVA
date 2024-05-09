@@ -20,15 +20,15 @@
       const scene = spline.findObjectByName("scene");
       const plataform = spline.findObjectByName("Plataform");
       if (scene && plataform) {
-        console.log(scene);
-        gsap.set(scene.position, { x: -800, y: 0, z: 0 });
+     
+        gsap.set(scene.position, { x: -1000, y: 0, z: 0 });
         gsap.set(scene.rotation, { x: 0, y: Math.PI/6, z: 0 });
         gsap.set(scene.scale, { x: 0.5, y: 0.5, z: 0.5,
             onComplete: () => {
                 gsap.to(scene.scale, {
-                    x: 1.2,
-                    y: 1.2,
-                    z: 1.2,
+                    x: 0.9,
+                    y: 0.9,
+                    z: 0.9,
                     duration: 2,
                     ease: "power2.inOut",
                 });

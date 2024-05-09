@@ -16,7 +16,7 @@ export default function LinkRecursos({
         id={idName}
         href={`/recursos?id=${ruta}`}
         aria-label='Recursos'
-        data-astro-prefetch
+        data-astro-prefetch='viewport'
         className={`text-white w-60 aspect-full md:aspect-2/3 inline-block select-none  pointer-events-auto  relative`}
       >
       </a>

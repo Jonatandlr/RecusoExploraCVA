@@ -1,9 +1,11 @@
 ---
+
 import LinkRecursos from "../components/ReactComponents/LinkRecursos";
+import RecursosContainer from "../components/ReactComponents/RecursosContainer";
 import RecursoModel from "../components/RecursoModel.astro";
 import Layout from "../layouts/Layout.astro";
 
-const id=Astro.params.id;
+
 ---
 
 <!-- <script>
@@ -15,8 +17,17 @@ const id=Astro.params.id;
 
 
 <Layout title="Welcome to Astro.">
-  <section class="text-white">
+  <section class="flex-grow flex justify-end items-center ">
     <RecursoModel />
 
+    <!-- <div class="border w-fit grid grid-cols-2 gap-6 px-10">
+       <Card />
+       <Card />
+       <Card />
+       <Card />
+       <Card />
+       
+    </div> -->
+    <RecursosContainer client:load/>
   </section>
 </Layout>

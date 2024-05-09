@@ -18,10 +18,11 @@ import NavBar from '../components/NavBar.astro';
 		<meta name="description" content="Astro descriptioSn" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<!-- <link rel="prefetch" href="https://draft.spline.design/FYNc176nuhXezDzz/scene.splinecode"> -->
 		<title>{title}</title>
 	</head>
 	<body>
-		<div class="max-w-7xl px-2 pt-4 mx-auto h-screen ">
+		<div class="max-w-7xl px-2 pt-4 mx-auto h-screen flex flex-col">
 			<NavBar />
 			<slot />
 		</div>
@@ -30,7 +31,7 @@ import NavBar from '../components/NavBar.astro';
 <style is:global>
 	html {
 		font-family:'Poppins', system-ui, sans-serif;
-		background: #0f0f0f;
+		background: #000000;
 		background-size: 224px;
 	}
 </style>
