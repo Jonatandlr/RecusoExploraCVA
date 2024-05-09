@@ -1,10 +1,22 @@
 ---
-import LinkRecursos from "../components/ReactComponents/LinkRecursos"
-import Layout from "../layouts/Layout.astro"
+import LinkRecursos from "../components/ReactComponents/LinkRecursos";
+import RecursoModel from "../components/RecursoModel.astro";
+import Layout from "../layouts/Layout.astro";
+
+const id=Astro.params.id;
 ---
 
-<Layout title="Welcome to Astro.">
-    
-    
+<!-- <script>
+  //get id query string
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get("id");
+</script> -->
 
+
+
+<Layout title="Welcome to Astro.">
+  <section class="text-white">
+    <RecursoModel />
+
+  </section>
 </Layout>

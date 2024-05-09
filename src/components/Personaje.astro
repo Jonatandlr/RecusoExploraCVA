@@ -10,13 +10,9 @@ const { canvaName } = Astro.props;
   gsap.registerPlugin(ScrollTrigger);
   const canvas = document.getElementById("model1") as HTMLCanvasElement;
   const spline = new Application(canvas, { renderMode: "auto" });
-  const botonJovenes = document.getElementById(
-    "JovenesBoton"
-  ) as HTMLElement;
+  
 
-  const botonAdultos = document.getElementById(
-    "AdultosBoton"
-  ) as HTMLElement;
+  
 
   spline
     .load("https://draft.spline.design/FYNc176nuhXezDzz/scene.splinecode")
@@ -59,7 +55,6 @@ const { canvaName } = Astro.props;
               duration: 1.5,
               ease: "none",
             });
-           
           },
         });
 
@@ -69,36 +64,6 @@ const { canvaName } = Astro.props;
           duration: 8,
           ease: "none",
         });
-
-        // // Hover of scene Jovenes
-
-        // botonJovenes.addEventListener("mouseover", () => {
-        //   gsap.set(escenaJovenes.scale, {
-        //     onComplete: () => {
-        //       gsap.to(escenaJovenes.scale, {
-        //         x: 0.85,
-        //         y: 0.85,
-        //         z: 0.85,
-        //         duration: 0.2,
-        //         ease: "none",
-        //       });
-        //     },
-        //   });
-        // });
-        // botonJovenes.addEventListener("mouseout", () => {
-        //   gsap.set(escenaJovenes.scale, {
-        //     onComplete: () => {
-        //       gsap.to(escenaJovenes.scale, {
-        //         x: 0.75,
-        //         y: 0.75,
-        //         z: 0.75,
-        //         duration: 0.2,
-        //         ease: "none",
-        //       });
-        //     },
-        //   });
-        // });
-
 
         //Adultos
         gsap.set(escenaAdultos.position, {
@@ -124,34 +89,46 @@ const { canvaName } = Astro.props;
           ease: "none",
         });
 
-        // // Hover of scene Adultos
+        //Hover Personajes
+        const anchorJovenes= document.getElementById("JovenesBoton");
+        anchorJovenes.addEventListener("mouseover", () => {
+          gsap.to(escenaJovenes.scale, {
+            x: 0.8,
+            y: 0.8,
+            z: 0.8,
+            duration: 0.2,
+            ease: "none",
+          });
+        });
+        anchorJovenes.addEventListener("mouseout", () => {
+          gsap.to(escenaJovenes.scale, {
+            x: 0.75,
+            y: 0.75,
+            z: 0.75,
+            duration: 0.2,
+            ease: "none",
+          });
+        });
 
-        // botonAdultos.addEventListener("mouseover", () => {
-        //   gsap.set(escenaAdultos.scale, {
-        //     onComplete: () => {
-        //       gsap.to(escenaAdultos.scale, {
-        //         x: 0.85,
-        //         y: 0.85,
-        //         z: 0.85,
-        //         duration: 0.2,
-        //         ease: "none",
-        //       });
-        //     },
-        //   });
-        // });
-        // botonAdultos.addEventListener("mouseout", () => {
-        //   gsap.set(escenaAdultos.scale, {
-        //     onComplete: () => {
-        //       gsap.to(escenaAdultos.scale, {
-        //         x: 0.75,
-        //         y: 0.75,
-        //         z: 0.75,
-        //         duration: 0.2,
-        //         ease: "none",
-        //       });
-        //     },
-        //   });
-        // });
+        const anchorAdultos= document.getElementById("AdultoBoton");
+        anchorAdultos.addEventListener("mouseover", () => {
+          gsap.to(escenaAdultos.scale, {
+            x: 0.8,
+            y: 0.8,
+            z: 0.8,
+            duration: 0.2,
+            ease: "none",
+          });
+        });
+        anchorAdultos.addEventListener("mouseout", () => {
+          gsap.to(escenaAdultos.scale, {
+            x: 0.75,
+            y: 0.75,
+            z: 0.75,
+            duration: 0.2,
+            ease: "none",
+          });
+        });
 
       }
     });
@@ -159,5 +136,5 @@ const { canvaName } = Astro.props;
 
 <canvas
   id="model1"
-  class="max-w-full max-h-full pointer-events-auto absolute top-0 left-0"
+  class="max-w-full max-h-full pointer-events-auto absolute top-0 left-0  animate-fade-in animate-duration-200 animate-delay-200"
 ></canvas>

@@ -9,13 +9,17 @@ export default function LinkRecursos({
   ruta,
   idName
 }: LinkRecursosProps) {
+  console.log(idName);
   return (
     <div className={`${estilo}`}>
       <a
-        id='AdultosBoton'
+        id={idName}
         href={`/recursos?id=${ruta}`}
+        aria-label='Recursos'
+        data-astro-prefetch
         className={`text-white w-60 aspect-full md:aspect-2/3 inline-block select-none  pointer-events-auto  relative`}
-      ></a>
+      >
+      </a>
     </div>
   );
 }
