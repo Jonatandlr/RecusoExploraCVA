@@ -1,0 +1,33 @@
+---
+
+import LinkRecursos from "../components/ReactComponents/LinkRecursos";
+import RecursosContainer from "../components/ReactComponents/RecursosContainer";
+import RecursoModel from "../components/RecursoModel.astro";
+import Layout from "../layouts/Layout.astro";
+
+
+---
+
+<!-- <script>
+  //get id query string
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get("id");
+</script> -->
+
+
+
+<Layout title="Welcome to Astro.">
+  <section class="flex-grow flex justify-end items-center ">
+    <RecursoModel />
+
+    <!-- <div class="border w-fit grid grid-cols-2 gap-6 px-10">
+       <Card />
+       <Card />
+       <Card />
+       <Card />
+       <Card />
+       
+    </div> -->
+    <RecursosContainer client:load/>
+  </section>
+</Layout>

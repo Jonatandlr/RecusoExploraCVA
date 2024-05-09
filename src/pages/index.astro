@@ -1,16 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import NavBar from "../components/NavBar.astro";
 import TitleMain from "../components/TitleMain.astro";
-import Recursos from "../components/Recursos.astro";
+import Principal from "../components/Principal.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <NavBar />
-  <main class="relative z-10 ">
-    <TitleMain title="RecursoExploraCVA" />
-    <Recursos />
-    
-    
+  <main class="relative z-10 flex-grow">
+    <TitleMain title="ExploraCVA" />
+    <Principal />   
   </main>
 </Layout>

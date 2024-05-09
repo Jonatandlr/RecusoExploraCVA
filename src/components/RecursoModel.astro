@@ -1,0 +1,54 @@
+<script>
+  import { Application } from "@splinetool/runtime";
+  import gsap from "gsap";
+
+  const modelos = {
+    Adultos: "https://draft.spline.design/4lNTOkqLusHqQ8CH/scene.splinecode",
+    Jovenes: "https://draft.spline.design/ilieJNmRk2My-qqp/scene.splinecode",
+  };
+  
+  //get id query string
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get("id");
+
+  if (modelos[id]) {
+    const canvas = document.getElementById(
+      "recursoModelCanvas"
+    ) as HTMLCanvasElement;
+    const spline = new Application(canvas,{renderOnDemand: false});
+    spline.load(modelos[id]).then(() => {
+      const scene = spline.findObjectByName("scene");
+      const plataform = spline.findObjectByName("Plataform");
+      if (scene && plataform) {
+     
+        gsap.set(scene.position, { x: -1000, y: 0, z: 0 });
+        gsap.set(scene.rotation, { x: 0, y: Math.PI/6, z: 0 });
+        gsap.set(scene.scale, { x: 0.5, y: 0.5, z: 0.5,
+            onComplete: () => {
+                gsap.to(scene.scale, {
+                    x: 0.9,
+                    y: 0.9,
+                    z: 0.9,
+                    duration: 2,
+                    ease: "power2.inOut",
+                });
+                
+            }
+        });
+        gsap.to(plataform.rotation, {
+          y: Math.PI * 4,
+          repeat: -1,
+          duration: 8,
+          ease: "none",
+        });
+
+
+
+      }
+    });
+  }
+</script>
+
+<div class="fixed top-0 left-0 w-screen h-screen pointer-events-none animate-fade-in animate-duration-200 animate-delay-150">
+  <canvas id="recursoModelCanvas" class="w-full h-full"></canvas>
+</div>
