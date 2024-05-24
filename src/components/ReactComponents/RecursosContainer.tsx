@@ -29,7 +29,7 @@ export default function RecursosContainer() {
 
   return (
     <>
-      <div className="w-fit grid grid-cols-2 gap-14 px-5 py-5 max-h-[420px] overflow-y-auto">
+      <div className="w-fit grid md:grid-cols-2 grid-cols-1 gap-14 px-5 py-5 max-h-[420px] ">
 
 
         {data.map((item: recursosProps, key) => (

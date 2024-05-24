@@ -21,9 +21,9 @@
       const plataform = spline.findObjectByName("Plataform");
       if (scene && plataform) {
      
-        gsap.set(scene.position, { x: -1000, y: 0, z: 0 });
+        gsap.set(scene.position, { x: -1200, y: 0, z: 0 });
         gsap.set(scene.rotation, { x: 0, y: Math.PI/6, z: 0 });
-        gsap.set(scene.scale, { x: 0.5, y: 0.5, z: 0.5,
+        gsap.set(scene.scale, { x: 0.3, y: 0.3, z: 0.3,
             onComplete: () => {
                 gsap.to(scene.scale, {
                     x: 0.9,
@@ -49,6 +49,6 @@
   }
 </script>
 
-<div class="fixed top-0 left-0 w-screen h-screen pointer-events-none animate-fade-in animate-duration-200 animate-delay-150">
+<div class="fixed top-0 left-0 w-screen h-screen pointer-events-none animate-fade-in animate-duration-200 animate-delay-150 md:visible invisible">
   <canvas id="recursoModelCanvas" class="w-full h-full"></canvas>
 </div>

@@ -12,17 +12,18 @@ export default function Card({
   link = "#",
 }: Props) {
   return (
-    <div className="animate-fade-in animate duration-300 max-w-[364px] text-white  bg-black rounded-[20px] font-['Poppins'] border-2 border-blue-500 shadow-blue-700 shadow-lg hover:scale-105 flex overflow-hidden">
+    <div className="animate-fade-in animate duration-300 max-w-[600px] min-h-[180px] text-black  bg-white rounded-[20px] font-['Poppins'] border-2 border-blue-500 shadow-blue-700 shadow-lg hover:scale-105 flex overflow-hidden">
       <div>
         <img
-          className="w-48 h-full object-cover object-left rounded-tl-[14px] rounded-bl-[14px]"
+          className="max-w-48 h-full object-fill rounded-tl-[14px] rounded-bl-[14px]"
 
           src={image}
         />
       </div>
-      <div className="pl-4 pt-2 flex flex-col py-2">
-        <div className=" text-base font-medium">{title}</div>
-        <div className="w-[174px]  text-xs font-normal mb-1">{description}</div>
+
+      <div className="pl-4 pr-4 pt-2 flex flex-col py-2">
+        <div className="text-lg text-base font-medium">{title}</div>
+        <div className="  text-xs font-normal mb-1">{description}</div>
         {/* redirect link */}
 
         <a href={link}>
@@ -31,6 +32,7 @@ export default function Card({
           </button>
         </a>
       </div>
+      
     </div>
   );
 }

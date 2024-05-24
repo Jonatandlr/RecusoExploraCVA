@@ -6,14 +6,17 @@ const { canvaName } = Astro.props;
   import { Application } from "@splinetool/runtime";
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import React from "react";
   gsap.registerPlugin(ScrollTrigger);
   const canvas = document.getElementById("model1") as HTMLCanvasElement;
   const moveCanvas = document.getElementById("rotationScene");
+  const rect = moveCanvas.getBoundingClientRect();
 
   const spline = new Application(canvas, { renderMode: "auto" });
 
   spline
-    .load("https://draft.spline.design/sggTaa9EU5TNkqYK/scene.splinecode")
+    .load("https://draft.spline.design/AyPih-LsoJHi8ZgX/scene.splinecode")
+
     .then(() => {
       const escena = spline.findObjectByName("Scene");
       const escenaJovenes = spline.findObjectByName("Jovenes");
@@ -31,14 +34,15 @@ const { canvaName } = Astro.props;
         escenaAdultos &&
         PlataformAdultos
       ) {
+        // gsap.set(spline.setSize,{
+        //   width:rect.width,
+        //   height:rect.height,
 
-        
-        gsap.set(escena.scale, {
-          x:0.8,
-          y:0.8,
-          z:0.8
-         
-        });
+        // })
+        // gsap.set(escena.scale,{
+
+        // })
+        // spline.setBackgroundColor({++})
 
         function mapRange(value, inputMin, inputMax, outputMin, outputMax) {
           return (
@@ -69,7 +73,28 @@ const { canvaName } = Astro.props;
           });
         });
 
-        moveCanvas.addEventListener("mouseleave", () => {
+        moveCanvas.addEventListener("touchmove", function (e) {
+          const touch = e.changedTouches[0];
+          const rect = moveCanvas.getBoundingClientRect();
+          const x = touch.clientX - rect.left;
+          const y = touch.clientY - rect.top;
+          const xPercent = x / rect.width;
+          const yPercent = y / rect.height;
+
+          gsap.to(escenaJovenes.rotation, {
+            x: mapRange(yPercent, 0, 1, -Math.PI / 10, Math.PI / 15),
+            y: mapRange(xPercent, 0, 1, -Math.PI / 8, Math.PI / 8),
+            duration: 0.8,
+            ease: "none",
+          });
+          gsap.to(escenaAdultos.rotation, {
+            x: mapRange(yPercent, 0, 1, -Math.PI / 10, Math.PI / 15),
+            y: mapRange(xPercent, 0, 1, -Math.PI / 8, Math.PI / 8),
+            duration: 0.8,
+            ease: "none",
+          });
+        });
+        moveCanvas.addEventListener(("touchend"), () => {
           gsap.to(escenaJovenes.rotation, {
             x: 0,
             y: 0,
@@ -84,10 +109,27 @@ const { canvaName } = Astro.props;
           });
         });
 
-        window.addEventListener("resize", () => {
-          const rect = moveCanvas.getBoundingClientRect();
-          spline.setSize(rect.width, rect.height);
+
+
+        moveCanvas.addEventListener(("mouseleave"), () => {
+          gsap.to(escenaJovenes.rotation, {
+            x: 0,
+            y: 0,
+            duration: 0.8,
+            ease: "none",
+          });
+          gsap.to(escenaAdultos.rotation, {
+            x: 0,
+            y: 0,
+            duration: 0.8,
+            ease: "none",
+          });
         });
+
+        // window.addEventListener("resize", () => {
+        //   const rect = moveCanvas.getBoundingClientRect();
+        //   spline.setSize(rect.width, rect.height);
+        // });
 
         const anchorJovenes = document.getElementById("JovenesBoton");
         anchorJovenes.addEventListener("mouseover", () => {
@@ -134,5 +176,5 @@ const { canvaName } = Astro.props;
 
 <canvas
   id="model1"
-  class="bg-transparent max-w-full max-h-full pointer-events-auto absolute top-0 left-0 animate-fade-in animate-duration-200 animate-delay-250"
+  class="bg-transparent max-w-full max-h-full pointer-events-auto absolute top-0 left-0 animate-fade-in animate-duration-200 animate-delay-500"
 ></canvas>
