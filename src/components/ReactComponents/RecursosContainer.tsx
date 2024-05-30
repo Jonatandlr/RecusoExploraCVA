@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import useAdultos from "../../hooks/useAdultos";
 import useJovenes from "../../hooks/useJovenes";
+import useNinos from "../../hooks/useNinos";
 import Card from "./Card";
 import SearchBar from "./SearchBar";
 
@@ -36,17 +37,21 @@ export default function RecursosContainer() {
     if (id === "Adultos") {
       setData(useAdultos());
     }
+    if (id === "ninos") {
+      setData(useNinos());
+      // console.log('h')
+    }
   }, []);
 
   useEffect(() => {
     // Filter Recursos
     setFilteredData(filterRecursos(data, searchText));
-    console.log(filteredData.length);
+    // console.log(filteredData.length);
   }, [searchText, data]);
 
   return (
     <>
-      <div className="mt-10 pt-6  px-5">
+      <div className="md:mt-10 mt-24 pt-6  px-5">
         <SearchBar value={searchText} set={setSearchText} />
         <div>
           {filteredData.length != 0 ? (
