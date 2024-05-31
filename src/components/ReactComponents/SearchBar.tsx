@@ -31,7 +31,7 @@ export default function SearchBar({ value, set }: searchBarProps) {
         <input
           type="search"
           id="search"
-          className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+          className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 "
           placeholder="Search"
           value={value}
           onChange={(event) => set(event.target.value)}

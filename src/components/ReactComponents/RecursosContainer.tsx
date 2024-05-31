@@ -16,6 +16,8 @@ export default function RecursosContainer() {
   const [data, setData] = useState([{}]);
   const [searchText, setSearchText] = useState("");
   const [filteredData, setFilteredData] = useState(data);
+  const [loading, setLoading] = useState(true);
+  const [title, setTitle] = useState("");
 
   const filterRecursos = (data, searchText) => {
     if (searchText === "") {
@@ -33,13 +35,15 @@ export default function RecursosContainer() {
     const id = params.get("id");
     if (id === "Jovenes") {
       setData(joven);
+      setTitle("Jovenes");
     }
     if (id === "Adultos") {
       setData(useAdultos());
+      setTitle("Adultos");
     }
     if (id === "ninos") {
       setData(useNinos());
-      // console.log('h')
+      setTitle("Niños");
     }
   }, []);
 
@@ -47,30 +51,56 @@ export default function RecursosContainer() {
     // Filter Recursos
     setFilteredData(filterRecursos(data, searchText));
     // console.log(filteredData.length);
+    setLoading(false);
+
+    console.log(loading);
   }, [searchText, data]);
 
   return (
     <>
-      <div className="md:mt-10 mt-20 pt-6  px-5">
+      <div>
+        <h1
+          className={`pb-3 w-fit text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r bg-clip-text text-transparent
+        ${
+          title === "Adultos"
+            ? "from-[#e0aea0]  to-[#ED695D]"
+            : `${
+                title === "Jovenes"
+                  ? "from-[#616ED1]  to-[#916DE2]"
+                  : "from-[#a3d2ca]  to-[#a3d2ca]"
+              }`
+        }`}
+        >
+          {title}
+        </h1>
+
         <SearchBar value={searchText} set={setSearchText} />
-        <div>
-          {filteredData.length > 0 ? (
-            <div className="w-fit grid md:grid-cols-2 grid-cols-1 gap-14  py-8  ">
-              {filteredData.map((item: recursosProps, key) => (
-                <div key={key}>
-                  <Card
-                    title={item.Recurso}
-                    description={item.Descripción}
-                    link={item.URL}
-                    image={item.imagen}
-                  />
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className=" py-8 text-xl">No se encuentran Resultados para: <span className="font-semibold"> {searchText}</span></div>
-          )}
-        </div>
+        {loading ? (
+          <div className="text-xl py-8">Cargando...</div>
+        ) : (
+          <div>
+            {filteredData.length > 0 ? (
+              <div className="w-fit grid md:grid-cols-2 grid-cols-1 gap-14  py-8  ">
+                {filteredData.map((item: recursosProps, key) => (
+                  <div key={key}>
+                    <Card
+                      color={title}
+                      title={item.Recurso}
+                      description={item.Descripción}
+                      link={item.URL}
+                      image={item.imagen}
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className=" py-8 text-xl">
+                No se encuentran Resultados para:{" "}
+                <span className="font-semibold"> {searchText}</span>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </>
   );
