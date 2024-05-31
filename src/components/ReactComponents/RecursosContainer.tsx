@@ -51,10 +51,10 @@ export default function RecursosContainer() {
 
   return (
     <>
-      <div className="md:mt-10 mt-24 pt-6  px-5">
+      <div className="md:mt-10 mt-20 pt-6  px-5">
         <SearchBar value={searchText} set={setSearchText} />
         <div>
-          {filteredData.length != 0 ? (
+          {filteredData.length > 0 ? (
             <div className="w-fit grid md:grid-cols-2 grid-cols-1 gap-14  py-8  ">
               {filteredData.map((item: recursosProps, key) => (
                 <div key={key}>

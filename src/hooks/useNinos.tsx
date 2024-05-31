@@ -3,15 +3,15 @@ const useNinos = () => {
     {
       Recurso: "Curso en Introducción al Mundo Computacional",
       Descripción:
-        "Aprenderás a conocer una que es y como se usa una computadora. Ademas, identificarás los tipos de ordenadores que existen y a poder manejarlos de manera eficaz.",
+        "Aprenderás conceptos básicos del uso de una computadora, cómo manejarla eficazmente, los diferentes tipos de ordenadores y sus aplicaciones prácticas.",
       URL: "https://www.centroscomunitariosdeaprendizaje.org.mx/capacitacion/cursos/curso-en-introduccion-al-mundo-computacional-version-animada",
       imagen:
         "https://www.centroscomunitariosdeaprendizaje.org.mx/sites/default/files/styles/teaser/public/cursos/intro_al_mundo_computacional_ver._animada_0.png?itok=ivGrpHAE",
     },
     {
-      Recurso: "Curso en Uso de los Componentes Físicos de la Computadora",
+      Recurso: "Los Componentes Físicos de la Computadora",
       Descripción:
-        "En este curso encontrarás cuales son sus partes internas y externas de un computador, su funcionamiento, sus usos y de que manera se puede mantener el equipo en buen estado.",
+        "Descubre las partes internas y externas de un computador, aprende sobre su funcionamiento y usos, y adquiere habilidades para mantener el equipo en buen estado.",
       URL: "https://www.centroscomunitariosdeaprendizaje.org.mx/capacitacion/cursos/curso-en-uso-de-los-componentes-fisicos-de-la-computadora",
       imagen:
         "https://www.centroscomunitariosdeaprendizaje.org.mx/sites/default/files/styles/teaser/public/cursos/uso_de_componentes_fisicos_de_la_computadora.png?itok=mK_SYpAe",
@@ -19,16 +19,16 @@ const useNinos = () => {
     {
       Recurso: "Manejo del Sistema Windows y sus Utilerías",
       Descripción:
-        "Aprenderás todos los conceptos necesarios para utilizar propiamente el sistema operativo de Windows.",
+        "Aprende a utilizar correctamente el sistema operativo Windows, explorando todos los conceptos y utilerías necesarias para una gestión eficiente.",
       URL: "https://www.centroscomunitariosdeaprendizaje.org.mx/capacitacion/cursos/curso-en-manejo-del-sistema-windows-y-sus-utilerias",
       imagen:
         "https://www.centroscomunitariosdeaprendizaje.org.mx/sites/default/files/styles/teaser/public/cursos/9_1.png?itok=CqUDXnu7",
     },
     {
       Recurso:
-        "Aprendizaje Verde: Comunidad Virtual para el Cuidado del Medio Ambiente",
+        "Comunidad Virtual para el Cuidado del Medio Ambiente",
       Descripción:
-        "Aprenderás a cuidar el medio ambiente y a conocer la importancia de la naturaleza en nuestras vidas.",
+        "Aprende sobre la importancia del cuidado del medio ambiente y descubre prácticas sostenibles para proteger la naturaleza en nuestra vida diaria.",
       URL: "https://www.centroscomunitariosdeaprendizaje.org.mx/accion-climatica/cursos/aprendizaje-verde-comunidad-virtual-para-el-cuidado-del-medio-ambiente",
       imagen:
         "https://www.centroscomunitariosdeaprendizaje.org.mx/sites/default/files/styles/teaser/public/cursos/copia_de_aprendizaje_verde_comunidad_virtual_para_el_cuidado_del_medio_ambiente.png?itok=tC4lxBSE",
@@ -36,7 +36,7 @@ const useNinos = () => {
     {
       Recurso: "Curso en Ciencias: El Universo",
       Descripción:
-        "Aprenderás sobre el universo, los planetas, las estrellas y los cometas.",
+        "Explora el fascinante mundo del universo, aprendiendo sobre planetas, estrellas, cometas y otros cuerpos celestes.",
       URL: "https://www.centroscomunitariosdeaprendizaje.org.mx/cursos/curso-en-ciencias-el-universo",
       imagen:
         "https://www.centroscomunitariosdeaprendizaje.org.mx/sites/default/files/styles/teaser/public/cursos/ciencias.png?itok=vjpBvVmP",
@@ -44,15 +44,15 @@ const useNinos = () => {
     {
       Recurso: "Curso en Ciencias: la Vida",
       Descripción:
-        "Aprenderás un poco de los descubrimientos de la ciencia hasta ahora, cómo se comenzó a dar la vida en la Tierra y como luego  fue evolucionando hasta lo de hoy en dia.",
+        "Descubre los avances científicos sobre el origen de la vida en la Tierra y su evolución hasta nuestros días.",
       URL: "https://www.centroscomunitariosdeaprendizaje.org.mx/cursos/curso-en-ciencias-la-vida",
       imagen:
         "https://www.centroscomunitariosdeaprendizaje.org.mx/sites/default/files/styles/teaser/public/cursos/la_vida.png?itok=HsxjTYF1",
     },
     {
-      Recurso: "Conceptos Básicos de Astronomía. (AIDA)",
+      Recurso: "Conceptos Básicos de Astronomía (AIDA)",
       Descripción:
-        "Promover el estudio de la astronomía como vehículo capaz de fortalecer la motivación y formación del talento humano ",
+        "Fomenta el estudio de la astronomía y fortalece la motivación y formación del talento humano a través de este curso introductorio.",
       URL: "https://www.centroscomunitariosdeaprendizaje.org.mx/capacitacion/cursos/curso-en-conceptos-basicos-de-astronomia-aida",
       imagen:
         "https://www.centroscomunitariosdeaprendizaje.org.mx/sites/default/files/styles/teaser/public/cursos/astronomia.png?itok=ToBYtCCG",
@@ -60,7 +60,7 @@ const useNinos = () => {
     {
       Recurso: "Ortografía y su Impacto en la Comunicación Escrita",
       Descripción:
-        "Adquirir las herramientas necesarias para mejorar tu producción escrita aplicando reglas de ortografía y acentuación.",
+        "Mejora tu producción escrita aprendiendo y aplicando las reglas de ortografía y acentuación adecuadas.",
       URL: "https://www.centroscomunitariosdeaprendizaje.org.mx/capacitacion/cursos/curso-en-ortografia-y-su-impacto-en-la-comunicacion-escrita",
       imagen:
         "https://www.centroscomunitariosdeaprendizaje.org.mx/sites/default/files/styles/teaser/public/cursos/ortografia_0.png?itok=ytD9kfSm",
@@ -68,7 +68,7 @@ const useNinos = () => {
     {
       Recurso: "Matemáticas para Empezar",
       Descripción:
-        "Aprenderás a realizar operaciones básicas de matemáticas, como sumas, restas, multiplicaciones y divisiones.",
+        "Aprende a realizar operaciones básicas de matemáticas, incluyendo sumas, restas, multiplicaciones y divisiones de manera sencilla.",
       URL: "https://www.centroscomunitariosdeaprendizaje.org.mx/capacitacion/cursos/curso-en-matematicas-para-empezar",
       imagen:
         "https://www.centroscomunitariosdeaprendizaje.org.mx/sites/default/files/styles/teaser/public/cursos/matematicas_para_empezar_1.png?itok=u9HvRE3E",
@@ -76,7 +76,7 @@ const useNinos = () => {
     {
       Recurso: "Cultura de la Legalidad",
       Descripción:
-        "Todos tenemos un rol importante en la construcción de la Cultura de la Legalidad, sumándonos a la transformación de nuestra ciudad.",
+        "Contribuye a la construcción de una Cultura de la Legalidad, sumándote a la transformación de nuestra ciudad mediante el entendimiento y aplicación de las leyes.",
       URL: "https://www.centroscomunitariosdeaprendizaje.org.mx/capacitacion/cursos/curso-cultura-de-la-legalidad",
       imagen:
         "https://www.centroscomunitariosdeaprendizaje.org.mx/sites/default/files/styles/teaser/public/cursos/cultura_legalidad2.png?itok=FUpQ8w27",
@@ -84,7 +84,7 @@ const useNinos = () => {
     {
       Recurso: "Crisis Climática y Calentamiento Global",
       Descripción:
-        "El cuidado de nuestro planeta tierra nos corresponde a todos, es el único lugar donde hemos vivido y las generaciones futuras también lo harán",
+        "Comprende la importancia de cuidar nuestro planeta y descubre acciones que todos podemos tomar para mitigar la crisis climática y el calentamiento global.",
       URL: "https://www.centroscomunitariosdeaprendizaje.org.mx/accion-climatica/cursos/curso-en-crisis-climatica-y-calentamiento-global",
       imagen:
         "https://www.centroscomunitariosdeaprendizaje.org.mx/sites/default/files/styles/teaser/public/cursos/cambio_climatico.png?itok=ltqNMBXb",
