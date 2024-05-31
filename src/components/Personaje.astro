@@ -15,7 +15,7 @@ const { canvaName } = Astro.props;
   const spline = new Application(canvas, { renderMode: "auto" });
 
   spline
-    .load("https://draft.spline.design/AyPih-LsoJHi8ZgX/scene.splinecode")
+    .load("https://draft.spline.design/OhWzCVJ2SPvgZe9I/scene.splinecode")
 
     .then(() => {
       const escena = spline.findObjectByName("Scene");
@@ -94,7 +94,7 @@ const { canvaName } = Astro.props;
             ease: "none",
           });
         });
-        moveCanvas.addEventListener(("touchend"), () => {
+        moveCanvas.addEventListener("touchend", () => {
           gsap.to(escenaJovenes.rotation, {
             x: 0,
             y: 0,
@@ -109,9 +109,7 @@ const { canvaName } = Astro.props;
           });
         });
 
-
-
-        moveCanvas.addEventListener(("mouseleave"), () => {
+        moveCanvas.addEventListener("mouseleave", () => {
           gsap.to(escenaJovenes.rotation, {
             x: 0,
             y: 0,
@@ -169,6 +167,20 @@ const { canvaName } = Astro.props;
             duration: 0.2,
             ease: "none",
           });
+        });
+
+        // rotacion de plataformas
+        gsap.to(PlataformJovenes.rotation, {
+          y: Math.PI * 4,
+          repeat: -1,
+          duration: 12,
+          ease: "none",
+        });
+        gsap.to(PlataformAdultos.rotation, {
+          y: Math.PI * 4,
+          repeat: -1,
+          duration: 8,
+          ease: "none",
         });
       }
     });
