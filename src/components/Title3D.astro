@@ -1,0 +1,33 @@
+<script>
+  import { Application } from "@splinetool/runtime";
+  import { gsap } from "gsap";
+  const modelosTitulos = {
+    Adultos: "https://draft.spline.design/TAChxcY7rbhAVjdf/scene.splinecode",
+    // Jovenes: "https://draft.spline.design/ilieJNmRk2My-qqp/scene.splinecode",
+  };
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+
+  if (modelosTitulos[id]) {
+    const canvita = document.getElementById("Titulo3d") as HTMLCanvasElement;
+    const spline = new Application(canvita);
+    spline.load(modelosTitulos[id]).then(() => {
+      const text = spline.findObjectByName("Text");
+
+      gsap.set(text.position,{
+        
+        // y:0,
+        // z:0
+      })
+
+        // gsap.to(text.rotation,{
+        //     // yoyo:true,
+        // })
+
+    });
+  }
+</script>
+
+<section class="border max-h-28 pointer-events-none">
+  <canvas class="" id="Titulo3d"></canvas>
+</section>

@@ -1,3 +1,5 @@
+import Personaje from "../Personaje.astro";
+
 interface LinkRecursosProps {
   estilo: string;
   ruta: string;
@@ -9,17 +11,20 @@ export default function LinkRecursos({
   ruta,
   idName
 }: LinkRecursosProps) {
-  console.log(idName);
+
   return (
-    <div className={`${estilo}`}>
+    // <div className={`${estilo}`}>
+   
+      
       <a
         id={idName}
         href={`/recursos?id=${ruta}`}
         aria-label='Recursos'
         data-astro-prefetch='viewport'
-        className={`text-white w-60 aspect-full md:aspect-2/3 inline-block select-none  pointer-events-auto  relative`}
+        className={`relative `}
       >
+
       </a>
-    </div>
+    // </div>
   );
 }

@@ -1,33 +1,15 @@
 ---
-
 import LinkRecursos from "../components/ReactComponents/LinkRecursos";
 import RecursosContainer from "../components/ReactComponents/RecursosContainer";
-import RecursoModel from "../components/RecursoModel.astro";
 import Layout from "../layouts/Layout.astro";
-
-
+import SearchBar from "../components/ReactComponents/SearchBar";
+import Title3D from "../components/Title3D.astro";
+import TitleMain from "../components/TitleMain.astro";
 ---
 
-<!-- <script>
-  //get id query string
-  const urlParams = new URLSearchParams(window.location.search);
-  const id = urlParams.get("id");
-</script> -->
-
-
-
-<Layout title="Welcome to Astro.">
-  <section class="flex-grow flex justify-end items-center ">
-    <RecursoModel />
-
-    <!-- <div class="border w-fit grid grid-cols-2 gap-6 px-10">
-       <Card />
-       <Card />
-       <Card />
-       <Card />
-       <Card />
-       
-    </div> -->
-    <RecursosContainer client:load/>
+<Layout title="Welcome to Astro." estilo="">
+  <section class="justify-center items-center md:mt-10 mt-20 pt-6 ">
+    
+    <RecursosContainer client:load />
   </section>
 </Layout>
