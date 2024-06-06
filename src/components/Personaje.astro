@@ -15,17 +15,16 @@ const { canvaName } = Astro.props;
   const spline = new Application(canvas, { renderMode: "auto" });
 
   spline
-    .load("https://draft.spline.design/OhWzCVJ2SPvgZe9I/scene.splinecode")
+    .load("https://draft.spline.design/8YWeiPi74oWpHML7/scene.splinecode")
 
     .then(() => {
       const escena = spline.findObjectByName("Scene");
       const escenaJovenes = spline.findObjectByName("Jovenes");
-
       const PlataformJovenes = spline.findObjectByName("PlataformJovenes");
-
       const escenaAdultos = spline.findObjectByName("Adultos");
-
       const PlataformAdultos = spline.findObjectByName("PlataformAdultos");
+      const escenaKid=spline.findObjectByName("kids")
+      const PlataformKid=spline.findObjectByName("PlataformNinos")
 
       if (
         escena &&
@@ -34,16 +33,7 @@ const { canvaName } = Astro.props;
         escenaAdultos &&
         PlataformAdultos
       ) {
-        // gsap.set(spline.setSize,{
-        //   width:rect.width,
-        //   height:rect.height,
-
-        // })
-        // gsap.set(escena.scale,{
-
-        // })
-        // spline.setBackgroundColor({++})
-
+        // Function to map a value from one range to another
         function mapRange(value, inputMin, inputMax, outputMin, outputMax) {
           return (
             outputMin +
@@ -52,6 +42,8 @@ const { canvaName } = Astro.props;
           );
         }
 
+
+        // Add event listener to the canvas to rotate the scene
         moveCanvas.addEventListener("mousemove", (e) => {
           const rect = moveCanvas.getBoundingClientRect();
           const x = e.clientX - rect.left;
@@ -66,6 +58,12 @@ const { canvaName } = Astro.props;
             ease: "none",
           });
           gsap.to(escenaAdultos.rotation, {
+            x: mapRange(yPercent, 0, 1, -Math.PI / 10, Math.PI / 15),
+            y: mapRange(xPercent, 0, 1, -Math.PI / 8, Math.PI / 8),
+            duration: 0.8,
+            ease: "none",
+          });
+          gsap.to(escenaKid.rotation, {
             x: mapRange(yPercent, 0, 1, -Math.PI / 10, Math.PI / 15),
             y: mapRange(xPercent, 0, 1, -Math.PI / 8, Math.PI / 8),
             duration: 0.8,
@@ -93,6 +91,12 @@ const { canvaName } = Astro.props;
             duration: 0.8,
             ease: "none",
           });
+          gsap.to(escenaKid.rotation, {
+            x: mapRange(yPercent, 0, 1, -Math.PI / 10, Math.PI / 15),
+            y: mapRange(xPercent, 0, 1, -Math.PI / 8, Math.PI / 8),
+            duration: 0.8,
+            ease: "none",
+          });
         });
         moveCanvas.addEventListener("touchend", () => {
           gsap.to(escenaJovenes.rotation, {
@@ -102,6 +106,12 @@ const { canvaName } = Astro.props;
             ease: "none",
           });
           gsap.to(escenaAdultos.rotation, {
+            x: 0,
+            y: 0,
+            duration: 0.8,
+            ease: "none",
+          });
+          gsap.to(escenaKid.rotation, {
             x: 0,
             y: 0,
             duration: 0.8,
@@ -122,13 +132,15 @@ const { canvaName } = Astro.props;
             duration: 0.8,
             ease: "none",
           });
+          gsap.to(escenaKid.rotation, {
+            x: 0,
+            y: 0,
+            duration: 0.8,
+            ease: "none",
+          });
         });
 
-        // window.addEventListener("resize", () => {
-        //   const rect = moveCanvas.getBoundingClientRect();
-        //   spline.setSize(rect.width, rect.height);
-        // });
-
+        // Hover in scene
         const anchorJovenes = document.getElementById("JovenesBoton");
         anchorJovenes.addEventListener("mouseover", () => {
           gsap.to(escenaJovenes.scale, {
@@ -168,6 +180,28 @@ const { canvaName } = Astro.props;
             ease: "none",
           });
         });
+        
+        const anchorKids = document.getElementById("kidsboton");
+        anchorKids.addEventListener("mouseover", () => {
+          gsap.to(escenaKid.scale, {
+            x: 1.1,
+            y: 1.1,
+            z: 1.1,
+            duration: 0.2,
+            ease: "none",
+          });
+        });
+        anchorKids.addEventListener("mouseout", () => {
+          gsap.to(escenaKid.scale, {
+            x: 1,
+            y: 1,
+            z: 1,
+            duration: 0.2,
+            ease: "none",
+          });
+        });
+
+
 
         // rotacion de plataformas
         gsap.to(PlataformJovenes.rotation, {
@@ -177,6 +211,12 @@ const { canvaName } = Astro.props;
           ease: "none",
         });
         gsap.to(PlataformAdultos.rotation, {
+          y: Math.PI * 4,
+          repeat: -1,
+          duration: 8,
+          ease: "none",
+        });
+        gsap.to(PlataformKid.rotation, {
           y: Math.PI * 4,
           repeat: -1,
           duration: 8,

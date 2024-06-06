@@ -23,11 +23,15 @@ export default function RecursosContainer() {
     if (searchText === "") {
       return data;
     }
+    const normalizedSearchText = searchText.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 
     return data.filter((item) =>
-      item.Recurso.toLowerCase().includes(searchText.toLowerCase())
+      item.Recurso.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(normalizedSearchText.toLowerCase())
     );
   };
+
+
+  // RecursosCVA
   //get params from url
   useEffect(() => {
     const joven = useJovenes();
