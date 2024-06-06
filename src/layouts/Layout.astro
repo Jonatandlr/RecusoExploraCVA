@@ -10,6 +10,7 @@ import "@fontsource/poppins/500.css";
 import "@fontsource/poppins/600.css";
 import "@fontsource/poppins/700.css";
 import NavBar from "../components/NavBar.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
@@ -22,13 +23,14 @@ import NavBar from "../components/NavBar.astro";
     <!-- <link rel="prefetch" href="https://draft.spline.design/FYNc176nuhXezDzz/scene.splinecode"> -->
     <title>{title}</title>
   </head>
-  <body class={estilo}>
+  <body   class="">
     <NavBar />
     <div
-      class="max-w-7xl md:px-2 px-0 md:pt-16 pt-0 mx-auto h-screen flex flex-col"
+      class=`max-w-7xl md:px-2 px-0 md:pt-16 pt-0 mx-auto flex flex-col `
     >
       <slot />
     </div>
+    <Footer />
   </body>
 </html>
 <style is:global>

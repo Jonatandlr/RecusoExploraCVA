@@ -15,7 +15,7 @@ const { canvaName } = Astro.props;
   const spline = new Application(canvas, { renderMode: "auto" });
 
   spline
-    .load("https://draft.spline.design/8YWeiPi74oWpHML7/scene.splinecode")
+    .load("https://draft.spline.design/Zln7jhExGinBFbNr/scene.splinecode")
 
     .then(() => {
       const escena = spline.findObjectByName("Scene");
@@ -228,5 +228,5 @@ const { canvaName } = Astro.props;
 
 <canvas
   id="model1"
-  class="bg-transparent max-w-full max-h-full pointer-events-auto absolute top-0 left-0 animate-fade-in animate-duration-200 animate-delay-500"
+  class=" borderbg-transparent max-w-full max-h-full pointer-events-auto absolute top-0 left-0 animate-fade-in animate-duration-200 animate-delay-500"
 ></canvas>

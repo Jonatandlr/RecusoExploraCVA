@@ -89,6 +89,14 @@ const useNinos = () => {
       imagen:
         "https://www.centroscomunitariosdeaprendizaje.org.mx/sites/default/files/styles/teaser/public/cursos/cambio_climatico.png?itok=ltqNMBXb",
     },
+    {
+      Recurso: "Capsulas educativas",
+      Descripción:
+        "Conoce las cápsulas educativas que te ayudarán a mejorar tus habilidades en diferentes áreas de conocimiento.",
+      URL: "https://www.centroscomunitariosdeaprendizaje.org.mx/capacitacion/conferencias/233",
+      imagen:
+        "https://radioeternidad.com/wp-content/uploads/2018/08/Capsulas-Educativas-623.png",
+    },
   ];
 
   return data;

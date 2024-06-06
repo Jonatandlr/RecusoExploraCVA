@@ -15,7 +15,7 @@ export default function Card({
 }: Props) {
   return (
     <div
-      className={`animate-fade-in animate duration-300 max-w-[600px] min-h-[150px] max-h-[180px] text-black  bg-white rounded-[20px] font-['Poppins'] border-2 shadow-lg hover:scale-105 flex overflow-hidden     
+      className={`animate-fade-in animate duration-300 max-w-[600px] min-h-[180px] max-h-[180px] text-black  bg-white rounded-[20px] font-['Poppins'] border-2 shadow-lg hover:scale-105 flex overflow-hidden     
      ${
        color === "Adultos"
          ? "border-[#e0aea0]  shadow-[#ED695D]"
@@ -47,7 +47,7 @@ export default function Card({
         <div className="md:text-xs text-[10px] font-normal mb-4 md:pr-10 pr-0">
           {description}
         </div>
-        <a href={link}>
+        <a href={link} target="_blank">
           <button
             className={`border transition duration-200 text-xs font-normal  px-2 rounded-lg
       

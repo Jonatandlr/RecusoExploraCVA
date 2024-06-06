@@ -62,9 +62,9 @@ export default function RecursosContainer() {
 
   return (
     <>
-      <div>
+      <div className="">
         <h1
-          className={`pb-3 w-fit text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r bg-clip-text text-transparent
+          className={`px-2 md:px-0 pb-3 w-fit text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r bg-clip-text text-transparent
         ${
           title === "Adultos"
             ? "from-[#e0aea0]  to-[#ED695D]"
@@ -78,15 +78,15 @@ export default function RecursosContainer() {
           {title}
         </h1>
 
-        <SearchBar value={searchText} set={setSearchText} />
+        {/* <SearchBar value={searchText} set={setSearchText} /> */}
         {loading ? (
           <div className="text-xl py-8">Cargando...</div>
         ) : (
-          <div>
+          <div className="">
             {filteredData.length > 0 ? (
               <div className="w-fit grid md:grid-cols-2 grid-cols-1 gap-14  py-8  ">
                 {filteredData.map((item: recursosProps, key) => (
-                  <div key={key}>
+                  <div key={key} className="px-2 md:px-0">
                     <Card
                       color={title}
                       title={item.Recurso}
