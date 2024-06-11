@@ -79,7 +79,7 @@ const useAdultos = () => {
         "Conoce las charlas con expertos que te ayudarán a mejorar tus habilidades en diferentes áreas de conocimiento.",
       URL: "https://www.centroscomunitariosdeaprendizaje.org.mx/capacitacion/conferencias/234",
       imagen:
-        "/public/imagenesRecursos/charlasE.png",
+        "/imagenesRecursos/charlasE.png",
     },
   ];
   return data;
