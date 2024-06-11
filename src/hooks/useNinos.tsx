@@ -95,7 +95,7 @@ const useNinos = () => {
         "Conoce las cápsulas educativas que te ayudarán a mejorar tus habilidades en diferentes áreas de conocimiento.",
       URL: "https://www.centroscomunitariosdeaprendizaje.org.mx/capacitacion/conferencias/233",
       imagen:
-        "https://radioeternidad.com/wp-content/uploads/2018/08/Capsulas-Educativas-623.png",
+        "/public/imagenesRecursos/capsulas.png",
     },
   ];
 

@@ -39,7 +39,7 @@ export default function RecursosContainer() {
     const id = params.get("id");
     if (id === "Jovenes") {
       setData(joven);
-      setTitle("Jovenes");
+      setTitle("Jóvenes");
     }
     if (id === "Adultos") {
       setData(useAdultos());

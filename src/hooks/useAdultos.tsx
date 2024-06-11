@@ -74,12 +74,12 @@ const useAdultos = () => {
         "https://www.centroscomunitariosdeaprendizaje.org.mx/sites/default/files/styles/teaser/public/cursos/diabetes_0.png?itok=3TWQHcdf",
     },
     {
-      Recurso: "Charlas con expertos",
+      Recurso: "Charlas Educativas",
       Descripción:
         "Conoce las charlas con expertos que te ayudarán a mejorar tus habilidades en diferentes áreas de conocimiento.",
       URL: "https://www.centroscomunitariosdeaprendizaje.org.mx/capacitacion/conferencias/234",
       imagen:
-        "https://th.bing.com/th/id/OIP.1tx2dLsxB_yOJ2QT1YPBCwHaEc?rs=1&pid=ImgDetMain",
+        "/public/imagenesRecursos/charlasE.png",
     },
   ];
   return data;
