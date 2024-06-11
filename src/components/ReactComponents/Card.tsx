@@ -20,7 +20,7 @@ export default function Card({
        color === "Adultos"
          ? "border-[#e0aea0]  shadow-[#ED695D]"
          : `${
-             color === "Jovenes"
+             color === "Jóvenes"
                ? "border-[#616ED1]  shadow-[#916DE2]"
                : "border-[#a3d2ca]  shadow-[#a3d2ca]"
            }`
@@ -39,7 +39,7 @@ export default function Card({
         ${
           color === "Adultos"
             ? "text-[#e0aea0]"
-            : `${color === "Jovenes" ? "text-[#616ED1]" : "text-[#a3d2ca]"}`
+            : `${color === "Jóvenes" ? "text-[#616ED1]" : "text-[#a3d2ca]"}`
         }`}
         >
           {title}
@@ -55,7 +55,7 @@ export default function Card({
              color === "Adultos"
                ? "border-[#e0aea0] hover:bg-[#ED695D]"
                : `${
-                   color === "Jovenes"
+                   color === "Jóvenes"
                      ? "border-[#616ED1] hover:bg-[#916DE2]"
                      : "border-[#a3d2ca] hover:bg-[#a3d2ca]"
                  }`

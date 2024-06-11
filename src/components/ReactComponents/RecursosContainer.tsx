@@ -69,7 +69,7 @@ export default function RecursosContainer() {
           title === "Adultos"
             ? "from-[#e0aea0]  to-[#ED695D]"
             : `${
-                title === "Jovenes"
+                title === "Jóvenes"
                   ? "from-[#616ED1]  to-[#916DE2]"
                   : "from-[#a3d2ca]  to-[#a3d2ca]"
               }`
