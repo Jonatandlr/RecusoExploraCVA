@@ -6,12 +6,9 @@ const { canvaName } = Astro.props;
   import { Application } from "@splinetool/runtime";
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
-  import React from "react";
   gsap.registerPlugin(ScrollTrigger);
   const canvas = document.getElementById("model1") as HTMLCanvasElement;
   const moveCanvas = document.getElementById("rotationScene");
-  const rect = moveCanvas.getBoundingClientRect();
-
   const spline = new Application(canvas, { renderMode: "auto" });
 
   spline
@@ -23,8 +20,8 @@ const { canvaName } = Astro.props;
       const PlataformJovenes = spline.findObjectByName("PlataformJovenes");
       const escenaAdultos = spline.findObjectByName("Adultos");
       const PlataformAdultos = spline.findObjectByName("PlataformAdultos");
-      const escenaKid=spline.findObjectByName("kids")
-      const PlataformKid=spline.findObjectByName("PlataformNinos")
+      const escenaKid = spline.findObjectByName("kids");
+      const PlataformKid = spline.findObjectByName("PlataformNinos");
 
       if (
         escena &&
@@ -41,7 +38,6 @@ const { canvaName } = Astro.props;
               (inputMax - inputMin)
           );
         }
-
 
         // Add event listener to the canvas to rotate the scene
         moveCanvas.addEventListener("mousemove", (e) => {
@@ -180,7 +176,7 @@ const { canvaName } = Astro.props;
             ease: "none",
           });
         });
-        
+
         const anchorKids = document.getElementById("kidsboton");
         anchorKids.addEventListener("mouseover", () => {
           gsap.to(escenaKid.scale, {
@@ -201,13 +197,11 @@ const { canvaName } = Astro.props;
           });
         });
 
-
-
         // rotacion de plataformas
         gsap.to(PlataformJovenes.rotation, {
           y: Math.PI * 4,
           repeat: -1,
-          duration: 12,
+          duration: 8,
           ease: "none",
         });
         gsap.to(PlataformAdultos.rotation, {

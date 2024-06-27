@@ -61,7 +61,7 @@ export default function Card({
                  }`
            }`}
           >
-            Ver mas
+            Ver más
           </button>
         </a>
       </div>

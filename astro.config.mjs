@@ -6,5 +6,8 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), react()],
-  prefetch: true
+  prefetch: {
+    defaultStrategy: "viewport",
+  },
+  output:"static"
 });
